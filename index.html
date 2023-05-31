@@ -28,6 +28,84 @@
           },
         },
       };
+
+      const isMatchingPassword = function (password, confirmedPassword) {
+        EMPTY_STRING = "";
+
+        if (password === EMPTY_STRING || confirmedPassword === EMPTY_STRING)
+          return false;
+
+        return password === confirmedPassword;
+      };
+
+      const showInvalidInputMessage = function (
+        invalidInputElement,
+        isShown = false,
+        invisibleClass = "invisible"
+      ) {
+        const isVisible =
+          !invalidInputElement.classList.contains(invisibleClass);
+
+        if ((isShown && isVisible) || (!isShown && !isVisible)) return;
+        invalidInputElement.classList.toggle(invisibleClass);
+      };
+
+      const setInputValidty = function (inputElement, isValid = true) {
+        const isInputValid = inputElement;
+      };
+
+      const showInvalidInputBorder = function (
+        inputElement,
+        isShown = false,
+        invalidBorderClass = "border-my-red"
+      ) {
+        const hasInvalidBorder =
+          inputElement.classList.contains(invalidBorderClass);
+
+        if ((!isShown && !hasInvalidBorder) || (isShown && hasInvalidBorder))
+          return;
+        inputElement.classList.toggle(invalidBorderClass);
+      };
+
+      window.addEventListener("load", (e) => {
+        // prevent the default form submission
+        const form = document.querySelector("#register-form");
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          console.log("Form submitted");
+        });
+
+        const inputPassword = document.querySelector("#password");
+        const textInvalidPassword = document.querySelector(
+          "#password + .invalid-input-message"
+        );
+        const inputConfirmedPassword = document.querySelector(
+          "#confirmed-password"
+        );
+
+        const handleInputFocusOut = function (e) {
+          if (
+            isMatchingPassword(
+              inputPassword.value,
+              inputConfirmedPassword.value
+            )
+          ) {
+            showInvalidInputMessage(textInvalidPassword, false);
+            showInvalidInputBorder(inputPassword, false);
+            showInvalidInputBorder(inputConfirmedPassword, false);
+          } else {
+            showInvalidInputMessage(textInvalidPassword, true);
+            showInvalidInputBorder(inputPassword, true);
+            showInvalidInputBorder(inputConfirmedPassword, true);
+          }
+        };
+
+        inputPassword.addEventListener("focusout", handleInputFocusOut);
+        inputConfirmedPassword.addEventListener(
+          "focusout",
+          handleInputFocusOut
+        );
+      });
     </script>
     <link rel="stylesheet" href="assets/styles.css" rel="stylesheet" />
   </head>
@@ -71,7 +149,7 @@
         <p class="text-black text-2xl font-semibold tracking-tight">
           You <em>know</em> you want to.
         </p>
-        <form action="/" method="POST">
+        <form action="/" method="POST" id="register-form">
           <div class="bg-white mt-14 mb-9 -mx-12 px-12 py-6">
             <h2
               class="text-off-black text-2xl font-semibold tracking-tight mb-4"
@@ -90,6 +168,7 @@
                   id="first-name"
                   name="first-name"
                   type="text"
+                  required
                   value="Thor"
                   class="block px-2 py-1 bg-off-white-light text-black border-[1px] border-off-gray rounded-md focus:border-my-blue focus-visible:outline-0 focus:shadow-xl invalid:border-my-red invalid:focus:border-my-red min-w-[262px]"
                 />
@@ -108,6 +187,7 @@
                   id="last-name"
                   name="last-name"
                   type="text"
+                  required
                   value="Odinson"
                   autofocus
                   class="block px-2 py-1 bg-off-white-light text-black border-[1px] border-off-gray rounded-md focus:border-my-blue focus-visible:outline-0 focus:shadow-xl invalid:border-my-red invalid:focus:border-my-red min-w-[262px]"
@@ -127,6 +207,8 @@
                   id="email"
                   name="email"
                   type="email"
+                  required
+                  value="thor@odinson.com"
                   class="block px-2 py-1 bg-off-white-light text-black border-[1px] border-off-gray rounded-md focus:border-my-blue focus-visible:outline-0 focus:shadow-xl invalid:border-my-red invalid:focus:border-my-red min-w-[262px]"
                 />
                 <p class="invalid-input-message text-my-red text-xs invisible">
@@ -162,6 +244,10 @@
                   id="password"
                   name="password"
                   type="password"
+                  required
+                  minlength="8"
+                  maxlength="64"
+                  value="testpassword"
                   class="block px-2 py-1 bg-off-white-light text-black border-[1px] border-off-gray rounded-md focus:border-my-blue focus-visible:outline-0 focus:shadow-xl invalid:border-my-red invalid:focus:border-my-red min-w-[262px]"
                 />
                 <p class="invalid-input-message text-my-red text-xs invisible">
@@ -179,6 +265,10 @@
                   id="confirmed-password"
                   name="confirmed-password"
                   type="password"
+                  required
+                  minlength="8"
+                  maxlength="64"
+                  value="test"
                   class="block px-2 py-1 bg-off-white-light text-black border-[1px] border-off-gray rounded-md focus:border-my-blue focus-visible:outline-0 focus:shadow-xl invalid:border-my-red invalid:focus:border-my-red min-w-[262px]"
                 />
                 <p class="invalid-input-message text-my-red text-xs invisible">
