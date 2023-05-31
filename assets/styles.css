@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Norse Bold";
+  src: local("Norse Bold"),
+      url("Norse-Bold.otf");
+}
 
 body {
   margin: 0;
