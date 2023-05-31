@@ -34,7 +34,7 @@
   <body>
     <div class="flex flex-row min-h-screen">
       <div
-        class="relative bg-dark-green bg-hero-splash bg-left bg-cover w-[535px] min-w-[535px] max-w-[535px]"
+        class="relative bg-dark-green bg-hero-splash bg-center bg-cover w-[535px] min-w-[535px] max-w-[535px]"
       >
         <div
           class="my-[220px] bg-black/50 flex flex-row justify-center items-center py-2.5"
@@ -71,6 +71,41 @@
         <p class="text-black text-2xl font-semibold tracking-tight">
           You <em>know</em> you want to.
         </p>
+        <form action="/" method="POST" class="some">
+          <div class="bg-white mt-14 mb-9 -mx-12 px-12 py-6">
+            <h2
+              class="text-off-black text-2xl font-semibold tracking-tight mb-4"
+            >
+              Let's do this!
+            </h2>
+            <div class="flex flex-row">
+              <div class="input-group">
+                <label
+                  for="first-name"
+                  class="text-xs text-off-black font-semibold uppercase tracking-wider"
+                  >First Name</label
+                >
+                <input
+                  id="first-name"
+                  name="first-name"
+                  type="text"
+                  value="Thor"
+                  class="block px-2 py-1 bg-off-white-light text-black border-[1px] border-off-gray rounded-md min-w-[262px]"
+                />
+              </div>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="bg-dark-green text-white font-semibold text-center p-3 rounded-lg min-w-[235px] tracking-wide shadow-lg"
+          >
+            Create Account
+          </button>
+          <p class="text-base text-black font-semibold mt-9">
+            Already have an account?
+            <a href="#" class="text-dark-green">Log in</a>
+          </p>
+        </form>
       </main>
     </div>
   </body>
