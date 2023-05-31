@@ -16,8 +16,8 @@
             colors: {
               "dark-green": "#596D48",
               "off-gray": "#E5E7EB",
-              red: "#B91C1C",
-              blue: "#1D4ED8",
+              "my-red": "#B91C1C",
+              "my-blue": "#1D4ED8",
               "off-black": "#1F2937",
               "off-white": "#f9fafb",
               "off-white-light": "#FFFEFE",
@@ -71,14 +71,15 @@
         <p class="text-black text-2xl font-semibold tracking-tight">
           You <em>know</em> you want to.
         </p>
-        <form action="/" method="POST" class="some">
+        <form action="/" method="POST">
           <div class="bg-white mt-14 mb-9 -mx-12 px-12 py-6">
             <h2
               class="text-off-black text-2xl font-semibold tracking-tight mb-4"
             >
               Let's do this!
             </h2>
-            <div class="flex flex-row">
+            <div class="flex flex-row flex-wrap gap-x-[72px] max-w-[600px]">
+              <!-- First Name Text Input -->
               <div class="input-group">
                 <label
                   for="first-name"
@@ -90,8 +91,99 @@
                   name="first-name"
                   type="text"
                   value="Thor"
-                  class="block px-2 py-1 bg-off-white-light text-black border-[1px] border-off-gray rounded-md min-w-[262px]"
+                  class="block px-2 py-1 bg-off-white-light text-black border-[1px] border-off-gray rounded-md focus:border-my-blue focus-visible:outline-0 focus:shadow-xl invalid:border-my-red invalid:focus:border-my-red min-w-[262px]"
                 />
+                <p class="invalid-input-message text-my-red text-xs invisible">
+                  * Invalid first name
+                </p>
+              </div>
+              <!-- Last Name Text Input -->
+              <div class="input-group">
+                <label
+                  for="last-name"
+                  class="text-xs text-off-black font-semibold uppercase tracking-wider"
+                  >Last Name</label
+                >
+                <input
+                  id="last-name"
+                  name="last-name"
+                  type="text"
+                  value="Odinson"
+                  autofocus
+                  class="block px-2 py-1 bg-off-white-light text-black border-[1px] border-off-gray rounded-md focus:border-my-blue focus-visible:outline-0 focus:shadow-xl invalid:border-my-red invalid:focus:border-my-red min-w-[262px]"
+                />
+                <p class="invalid-input-message text-my-red text-xs invisible">
+                  * Invalid last name
+                </p>
+              </div>
+              <!-- Email Text Input -->
+              <div class="input-group">
+                <label
+                  for="email"
+                  class="text-xs text-off-black font-semibold uppercase tracking-wider"
+                  >Email</label
+                >
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  class="block px-2 py-1 bg-off-white-light text-black border-[1px] border-off-gray rounded-md focus:border-my-blue focus-visible:outline-0 focus:shadow-xl invalid:border-my-red invalid:focus:border-my-red min-w-[262px]"
+                />
+                <p class="invalid-input-message text-my-red text-xs invisible">
+                  * Invalid email
+                </p>
+              </div>
+              <!-- Phone Number Input -->
+              <div class="input-group">
+                <label
+                  for="phone-number"
+                  class="text-xs text-off-black font-semibold uppercase tracking-wider"
+                  >Phone Number</label
+                >
+                <input
+                  id="phone-number"
+                  name="phone-number"
+                  type="tel"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  class="block px-2 py-1 bg-off-white-light text-black border-[1px] border-off-gray rounded-md focus:border-my-blue focus-visible:outline-0 focus:shadow-xl invalid:border-my-red invalid:focus:border-my-red min-w-[262px]"
+                />
+                <p class="invalid-input-message text-my-red text-xs invisible">
+                  * Invalid phone number
+                </p>
+              </div>
+              <!-- Password Input -->
+              <div class="input-group">
+                <label
+                  for="password"
+                  class="text-xs text-off-black font-semibold uppercase tracking-wider"
+                  >Password</label
+                >
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  class="block px-2 py-1 bg-off-white-light text-black border-[1px] border-off-gray rounded-md focus:border-my-blue focus-visible:outline-0 focus:shadow-xl invalid:border-my-red invalid:focus:border-my-red min-w-[262px]"
+                />
+                <p class="invalid-input-message text-my-red text-xs invisible">
+                  * Passwords do not match
+                </p>
+              </div>
+              <!-- Confirm Password Input -->
+              <div class="input-group">
+                <label
+                  for="confirmed-password"
+                  class="text-xs text-off-black font-semibold uppercase tracking-wider"
+                  >Confirm Password</label
+                >
+                <input
+                  id="confirmed-password"
+                  name="confirmed-password"
+                  type="password"
+                  class="block px-2 py-1 bg-off-white-light text-black border-[1px] border-off-gray rounded-md focus:border-my-blue focus-visible:outline-0 focus:shadow-xl invalid:border-my-red invalid:focus:border-my-red min-w-[262px]"
+                />
+                <p class="invalid-input-message text-my-red text-xs invisible">
+                  &nbsp;
+                </p>
               </div>
             </div>
           </div>
