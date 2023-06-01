@@ -1,4 +1,6 @@
-# top-sign-up-form
+# Sign Up Form
+
+Site is live [here](https://junyuhuang.github.io/top-sign-up-form/).
 
 ## Page Layout Planning
 
