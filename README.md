@@ -1,5 +1,9 @@
 # Sign Up Form
 
+![Image of a page with a Sign Up Form.](assets/sign-up-form.png)
+
+This webpage is an implementation based on the above UI design mock-up.
+
 Site is live [here](https://junyuhuang.github.io/top-sign-up-form/).
 
 ## Page Layout Planning
